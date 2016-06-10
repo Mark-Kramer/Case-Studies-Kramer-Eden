@@ -70,7 +70,7 @@ ylabel('Occupancy normalized counts (spikes/s)')
 
 %Compute maximum likelihood estimates of:
 mu=-b3(2)/2/b3(3);                  %...place field center,
-sigma=sqrt(-2/b3(3));               %...place field size,
+sigma=sqrt(-1/(2*b3(3)));           %...place field size,
 alpha=exp(b3(1)-b3(2)^2/4/b3(3));   %...max firing rate.
 
 %%  Chapter 9, Step 4.
@@ -164,7 +164,7 @@ plot(t,R)					%Plot it.
 
 %For Model 4, compute maximum likelihood estimates of:
 mu=-b4(2)/2/b4(3);                  %...place field center,
-sigma=sqrt(-2/b4(3));               %...place field size,
+sigma=sqrt(-1/(2*b4(3)));           %...place field size,
 alpha=exp(b4(1)-b4(2)^2/4/b4(3));   %...max firing rate.
 
 xs=(0:100)';					%Define interval of positions,
