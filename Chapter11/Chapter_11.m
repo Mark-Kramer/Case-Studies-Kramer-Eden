@@ -83,17 +83,17 @@ X = [cos(phi) sin(phi)];	%Create a matrix of predictors.
 Y = [n];					%Create a vector of responses.
 [b1,dev1,stats1]=glmfit(X,Y,'poisson'); %Fit the GLM.
 
-phi0=transpose((-pi:0.01:pi));		%Define new phase interval,
-X0 = [cos(phi0) sin(phi0)];			%...and predictors,
-[y0 dylo dyhi]=glmval(b1,X0,'log',stats1);%...evaluate the model.
+phi0=transpose((-pi:0.01:pi));              %Define new phase interval,
+X0 = [cos(phi0) sin(phi0)];                 %...and predictors,
+[y0 dylo dyhi]=glmval(b1,X0,'log',stats1);  %...evaluate the model.
 
-pval1=stats1.p(2);		%Significance of parameter beta_1.
-pval2=stats1.p(3);		%Significance of parameter beta_2.
+pval1=stats1.p(2);          %Significance of parameter beta_1.
+pval2=stats1.p(3);          %Significance of parameter beta_2.
 
-X0 = [sin(phi)];						%Define reduced predictor.
-[b0,dev0,stats0]=glmfit(X0,Y,'poisson'); %Fit reduced model.
+X0 = ones(size(phi));                                       %Define reduced predictor.
+[b0,dev0,stats0]=glmfit(X0,Y,'poisson','constant','off');   %Fit reduced model.
 
-pval = 1-chi2cdf(dev0-dev1,1);			%Compare two nested GLMs.
+pval = 1-chi2cdf(dev0-dev1,2);      %Compare two nested GLMs.
 
 p = mean(sum(n,2)/(N));
 

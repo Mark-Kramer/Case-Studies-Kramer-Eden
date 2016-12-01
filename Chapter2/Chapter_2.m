@@ -124,7 +124,7 @@ title('ERP of condition A with bootstrap confidence intervals')
 mnA = mean(EEGa,1);             %Determine ERP for condition A.
 mnB = mean(EEGb,1);             %Determine ERP for condition B.
 mnD = mnA-mnB;                  %Compute the differenced ERP.
-stat = max(abs(diff(mnD)));     %Compute the statistic.
+stat = max(abs(mnD));           %Compute the statistic.
 
 EEG = [EEGa; EEGb];             %Merge EEG data from all trials.
 statD = zeros(3000,1);          %Empty variable to hold results.
