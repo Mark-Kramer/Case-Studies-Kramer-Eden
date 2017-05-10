@@ -63,9 +63,10 @@ function Chapter_3_Question_9()
     % second of data perfectly describes the signal from the beginning of 
     % recorded history until the inevitable heat-death of the universe. It then
     % fits frequencies to this infinite zero-tailed data. By doubling the data, we
-    % are not actually giving the fourier transform more information; the same 
-    % frequencies are still present in the signal. If you look at the values 
-    % of Sxx_double, you'll see every other power is 0. This is because the "new"
+    % are not actually giving the fourier transform more information; it
+    % already assumed the data was being repeated forever. So it fits the best
+    % frequencies to the data with that assumption. If you look at the values 
+    % of Sxx_double, you'll see every other one is 0. This is because the "new"
     % data, which is really just twice the old data, contains no new
     % frequencies to fit. Everything is still perfectly described by the old
     % best fit frequencies. So even though our frequency resolution has 
